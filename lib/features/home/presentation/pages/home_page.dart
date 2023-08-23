@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:work_orders_app/features/home/presentation/widgets/home_options_card.dart';
-import 'package:work_orders_app/features/work_orders/presentation/pages/work_orders_page.dart';
+import 'package:work_orders_app/features/work_orders/presentation/pages/work_orders_list/work_orders_list_page.dart';
 
 class HomePage extends StatelessWidget {
   static const String routeId = '/home';
@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             HomeOptionCard(
               title: 'Work Orders',
               onTap: () {
-                Get.toNamed(WorkOrdersPage.routeId);
+                Get.toNamed(WorkOrdersListPage.routeId);
               },
             ),
             const SizedBox(height: 28),
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
             HomeOptionCard(
               title: 'QR Code',
               onTap: () {},
-            )
+            ),
           ],
         ),
       ),

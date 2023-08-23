@@ -3,7 +3,7 @@ import 'package:work_orders_app/features/work_orders/data/data_sources/work_orde
 import 'package:work_orders_app/features/work_orders/data/repositories/work_orders_repository.dart';
 import 'package:work_orders_app/features/work_orders/data/use_cases/load_work_orders_use_case.dart';
 import 'package:work_orders_app/features/work_orders/domain/repositories/i_work_orders_repositories.dart';
-import 'package:work_orders_app/features/work_orders/presentation/pages/work_orders_controller.dart';
+import 'package:work_orders_app/features/work_orders/presentation/pages/work_orders_list/work_orders_list_controller.dart';
 
 class WorkOrdersBindings extends Bindings {
   @override
@@ -14,6 +14,6 @@ class WorkOrdersBindings extends Bindings {
 
     Get.lazyPut(() => LoadAllWorkOrdersUseCase(Get.find()));
 
-    Get.lazyPut(() => WorkOrdersController(Get.find()));
+    Get.lazyPut(() => WorkOrdersListController(Get.find()));
   }
 }

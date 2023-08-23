@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 import 'package:work_orders_app/features/work_orders/data/use_cases/load_work_orders_use_case.dart';
 import 'package:work_orders_app/features/work_orders/domain/entities/work_order_entity.dart';
 
-class WorkOrdersController extends GetxController {
+class WorkOrdersListController extends GetxController {
   final LoadAllWorkOrdersUseCase _loadWorkOrdersUseCase;
 
-  WorkOrdersController(
+  WorkOrdersListController(
     LoadAllWorkOrdersUseCase loadWorkOrdersUseCase,
   ) : _loadWorkOrdersUseCase = loadWorkOrdersUseCase;
 
