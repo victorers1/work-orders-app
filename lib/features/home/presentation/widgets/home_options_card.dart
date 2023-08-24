@@ -4,10 +4,12 @@ class HomeOptionCard extends StatelessWidget {
   const HomeOptionCard({
     super.key,
     required this.title,
+    required this.iconAssetPath,
     this.onTap,
   });
 
   final String title;
+  final String iconAssetPath;
   final VoidCallback? onTap;
 
   @override
@@ -34,11 +36,7 @@ class HomeOptionCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              width: 24,
-              height: 24,
-              child: Stack(children: []), // TODO: image
-            ),
+            Image.asset(iconAssetPath, width: 24, height: 24),
             const SizedBox(width: 16),
             Text(
               title,
@@ -47,7 +45,6 @@ class HomeOptionCard extends StatelessWidget {
                 fontSize: 18,
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.w500,
-                height: 1.56,
               ),
             ),
           ],

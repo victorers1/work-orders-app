@@ -13,8 +13,17 @@ class WorkOrderSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title),
+        Text(
+          title,
+          style: const TextStyle(
+            color: Color(0xFF24292F),
+            fontSize: 16,
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         const SizedBox(height: 8),
         child,
       ],

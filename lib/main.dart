@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:work_orders_app/bindings.dart';
 import 'package:work_orders_app/features/home/presentation/pages/home_page.dart';
 import 'package:work_orders_app/features/work_orders/bindings.dart';
@@ -15,11 +16,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return GetMaterialApp(
       title: 'Work Oorders',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF17192D)),
         useMaterial3: true,
+        textTheme: GoogleFonts.robotoTextTheme(textTheme),
       ),
       initialRoute: HomePage.routeId,
       getPages: [

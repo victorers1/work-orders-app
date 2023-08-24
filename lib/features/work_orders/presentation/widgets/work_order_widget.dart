@@ -14,12 +14,8 @@ class WorkOrderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.toNamed(
-          WorkOrderPage.routeId,
-          arguments: {'workOrder': workOrder},
-        );
-      },
+      behavior: HitTestBehavior.opaque,
+      onTap: _onTapWorkOrder,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,6 +38,7 @@ class WorkOrderWidget extends StatelessWidget {
                   workOrder.title,
                   style: const TextStyle(
                     color: Color(0xFF24292F),
+                    fontFamily: 'Roboto',
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
@@ -50,6 +47,7 @@ class WorkOrderWidget extends StatelessWidget {
                   'ID #${workOrder.id}',
                   style: const TextStyle(
                     color: Color(0xFF8C959F),
+                    fontFamily: 'Roboto',
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -61,7 +59,7 @@ class WorkOrderWidget extends StatelessWidget {
                     vertical: 2,
                   ),
                   decoration: ShapeDecoration(
-                    color: const Color(0xFFE16F24),
+                    color: _getStatusColor(workOrder.status),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(60),
                     ),
@@ -71,6 +69,7 @@ class WorkOrderWidget extends StatelessWidget {
                     style: const TextStyle(
                       color: Color(0xFFFAFAFA),
                       fontSize: 12,
+                      fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -84,6 +83,26 @@ class WorkOrderWidget extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Color _getStatusColor(String status) {
+    switch (status) {
+      case 'in progress':
+        return const Color(0xFF2188FF);
+
+      case 'on hold':
+        return const Color(0xFFFB8F44);
+      case 'open':
+      default:
+        return const Color(0xFFE16F24);
+    }
+  }
+
+  void _onTapWorkOrder() {
+    Get.toNamed(
+      WorkOrderPage.routeId,
+      arguments: {'workOrder': workOrder},
     );
   }
 }

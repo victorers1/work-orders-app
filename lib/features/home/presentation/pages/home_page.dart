@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
           children: [
             HomeOptionCard(
               title: 'Work Orders',
+              iconAssetPath: 'assets/icons/work_order_menu_icon.png',
               onTap: () {
                 Get.toNamed(WorkOrdersListPage.routeId);
               },
@@ -27,11 +28,13 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 28),
             HomeOptionCard(
               title: 'Assets',
+              iconAssetPath: 'assets/icons/assets_menu_icon.png',
               onTap: () {},
             ),
             const SizedBox(height: 28),
             HomeOptionCard(
               title: 'QR Code',
+              iconAssetPath: 'assets/icons/qr_code_menu_icon.png',
               onTap: () {},
             ),
           ],
