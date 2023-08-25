@@ -38,8 +38,9 @@ class MyApp extends StatelessWidget {
           binding: WorkOrdersBindings(),
         ),
         GetPage(
-          name: WorkOrderPage.routeId,
-          page: () => WorkOrderPage(),
+          name: WorkOrderViewPage.routeId,
+          page: () => const WorkOrderViewPage(),
+          binding: WorkOrdersBindings(),
         )
       ],
     );

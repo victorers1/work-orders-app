@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:work_orders_app/features/work_orders/domain/entities/work_order_entity.dart';
-import 'package:work_orders_app/features/work_orders/domain/repositories/i_work_orders_repositories.dart';
+import 'package:work_orders_app/features/work_orders/domain/repositories/i_work_orders_repository.dart';
 
 class LoadAllWorkOrdersUseCase {
   final IWorkOrdersRepository _repository;

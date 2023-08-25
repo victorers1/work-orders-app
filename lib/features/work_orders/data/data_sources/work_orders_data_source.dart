@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:work_orders_app/features/work_orders/data/models/work_order_model.dart';
 import 'package:work_orders_app/features/work_orders/domain/entities/work_order_entity.dart';
 
-class WorkOrdersDataSource {
+class FakeWorkOrdersDataSource {
   final Dio _dio;
 
-  WorkOrdersDataSource(this._dio);
+  FakeWorkOrdersDataSource(this._dio);
 
   Future<List<WorkOrderEntity>> loadWorkOrders() async {
     final result = await _dio.get('workorders');

@@ -1,12 +1,14 @@
 import 'package:flutter/foundation.dart';
 
+import 'package:get/get.dart';
+
 import 'package:work_orders_app/features/work_orders/data/models/work_order_model.dart';
 import 'package:work_orders_app/features/work_orders/domain/entities/checklist_entity.dart';
 
 class WorkOrderEntity {
   final int assetId;
   final List<int> assignedUserIds;
-  final List<ChecklistEntity> checklist;
+  final Set<ChecklistEntity> checklist;
   final String description;
   final int id;
   final String priority;
@@ -19,10 +21,12 @@ class WorkOrderEntity {
     required this.checklist,
     required this.description,
     required this.id,
-    required this.priority,
-    required this.status,
-    required this.title,
-  });
+    required String priority,
+    required String status,
+    required String title,
+  })  : priority = priority.capitalize ?? '',
+        status = status.capitalize ?? '',
+        title = title.capitalizeFirst ?? '';
 
   factory WorkOrderEntity.fromModel(WorkOrderModel model) {
     return WorkOrderEntity(
@@ -32,8 +36,8 @@ class WorkOrderEntity {
               ?.map(
                 (e) => ChecklistEntity.fromModel(e),
               )
-              .toList() ??
-          [],
+              .toSet() ??
+          {},
       description: model.description ?? '',
       id: model.id ?? 0,
       priority: model.priority ?? '',
@@ -48,7 +52,7 @@ class WorkOrderEntity {
 
     return other.assetId == assetId &&
         listEquals(other.assignedUserIds, assignedUserIds) &&
-        listEquals(other.checklist, checklist) &&
+        setEquals(other.checklist, checklist) &&
         other.description == description &&
         other.id == id &&
         other.priority == priority &&

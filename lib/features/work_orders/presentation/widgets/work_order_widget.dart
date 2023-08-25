@@ -65,7 +65,7 @@ class WorkOrderWidget extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    workOrder.status.capitalize ?? '',
+                    workOrder.status,
                     style: const TextStyle(
                       color: Color(0xFFFAFAFA),
                       fontSize: 12,
@@ -101,7 +101,7 @@ class WorkOrderWidget extends StatelessWidget {
 
   void _onTapWorkOrder() {
     Get.toNamed(
-      WorkOrderPage.routeId,
+      WorkOrderViewPage.routeId,
       arguments: {'workOrder': workOrder},
     );
   }

@@ -14,6 +14,7 @@ class AppBindings extends Bindings {
           receiveTimeout: timeout,
         ),
       ),
+      tag: 'fake-api',
     );
   }
 }
