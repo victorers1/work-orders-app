@@ -4,49 +4,49 @@ import 'package:work_orders_app/features/assets/data/models/metrics_model.dart';
 import 'package:work_orders_app/features/assets/data/models/specifications_model.dart';
 
 class AssetModel {
-  final List<int> assignedUserIds;
-  final int companyId;
-  final List<HealthHistoryModel> healthHistory;
-  final double healthscore;
-  final int id;
-  final String image;
-  final MetricsModel metrics;
-  final String model;
-  final String name;
-  final List<String> sensors;
-  final SpecificationsModel specifications;
-  final String status;
-  final int unitId;
+  final List<int>? assignedUserIds;
+  final int? companyId;
+  final List<HealthHistoryModel>? healthHistory;
+  final double? healthscore;
+  final int? id;
+  final String? image;
+  final MetricsModel? metrics;
+  final String? model;
+  final String? name;
+  final List<String>? sensors;
+  final SpecificationsModel? specifications;
+  final String? status;
+  final int? unitId;
 
   AssetModel({
-    required this.assignedUserIds,
-    required this.companyId,
-    required this.healthHistory,
-    required this.healthscore,
-    required this.id,
-    required this.image,
-    required this.metrics,
-    required this.model,
-    required this.name,
-    required this.sensors,
-    required this.specifications,
-    required this.status,
-    required this.unitId,
+    this.assignedUserIds,
+    this.companyId,
+    this.healthHistory,
+    this.healthscore,
+    this.id,
+    this.image,
+    this.metrics,
+    this.model,
+    this.name,
+    this.sensors,
+    this.specifications,
+    this.status,
+    this.unitId,
   });
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'assignedUserIds': assignedUserIds,
       'companyId': companyId,
-      'healthHistory': healthHistory.map((x) => x.toJson()).toList(),
+      'healthHistory': healthHistory?.map((x) => x.toJson()).toList(),
       'healthscore': healthscore,
       'id': id,
       'image': image,
-      'metrics': metrics.toJson(),
+      'metrics': metrics?.toJson(),
       'model': model,
       'name': name,
       'sensors': sensors,
-      'specifications': specifications.toJson(),
+      'specifications': specifications?.toJson(),
       'status': status,
       'unitId': unitId,
     };
@@ -62,7 +62,7 @@ class AssetModel {
             ) ??
             [],
       ),
-      healthscore: map['healthscore'],
+      healthscore: map['healthscore']?.toDouble(),
       id: map['id'].toInt(),
       image: map['image'],
       metrics: MetricsModel.fromJson(map['metrics']),

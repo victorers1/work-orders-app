@@ -88,12 +88,12 @@ class WorkOrderWidget extends StatelessWidget {
 
   Color _getStatusColor(String status) {
     switch (status) {
-      case 'in progress':
+      case 'In Progress':
         return const Color(0xFF2188FF);
 
-      case 'on hold':
+      case 'On Hold':
         return const Color(0xFFFB8F44);
-      case 'open':
+      case 'Open':
       default:
         return const Color(0xFFE16F24);
     }
@@ -102,7 +102,7 @@ class WorkOrderWidget extends StatelessWidget {
   void _onTapWorkOrder() {
     Get.toNamed(
       WorkOrderViewPage.routeId,
-      arguments: {'workOrder': workOrder},
+      arguments: {'workOrder': workOrder.copyWith()},
     );
   }
 }

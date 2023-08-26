@@ -1,11 +1,11 @@
 class MetricsModel {
-  final String lastUptimeAt;
-  final int totalCollectsUptime;
-  final double totalUptime;
+  final String? lastUptimeAt;
+  final int? totalCollectsUptime;
+  final double? totalUptime;
   MetricsModel({
-    required this.lastUptimeAt,
-    required this.totalCollectsUptime,
-    required this.totalUptime,
+    this.lastUptimeAt,
+    this.totalCollectsUptime,
+    this.totalUptime,
   });
 
   Map<String, dynamic> toJson() {

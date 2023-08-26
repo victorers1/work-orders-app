@@ -1,11 +1,11 @@
 class SpecificationsModel {
-  final int maxTemp;
-  final double power;
-  final int rpm;
+  final int? maxTemp;
+  final double? power;
+  final int? rpm;
   SpecificationsModel({
-    required this.maxTemp,
-    required this.power,
-    required this.rpm,
+    this.maxTemp,
+    this.power,
+    this.rpm,
   });
 
   Map<String, dynamic> toJson() {
@@ -19,7 +19,7 @@ class SpecificationsModel {
   factory SpecificationsModel.fromJson(Map<String, dynamic> map) {
     return SpecificationsModel(
       maxTemp: map['maxTemp'],
-      power: map['power'],
+      power: map['power']?.toDouble(),
       rpm: map['rpm'],
     );
   }

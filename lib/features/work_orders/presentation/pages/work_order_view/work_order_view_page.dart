@@ -94,13 +94,13 @@ class WorkOrderViewPage extends StatelessWidget {
                 child: Column(
                   children: controller.workOrder.checklist
                       .map(
-                        (check) => CheckboxListTile.adaptive(
-                          value: check.completed,
+                        (task) => CheckboxListTile.adaptive(
+                          value: task.completed,
                           controlAffinity: ListTileControlAffinity.leading,
                           dense: true,
                           contentPadding: EdgeInsets.zero,
                           title: Text(
-                            check.task,
+                            task.task,
                             style: const TextStyle(
                               color: Color(0xFF24292F),
                               fontSize: 14,

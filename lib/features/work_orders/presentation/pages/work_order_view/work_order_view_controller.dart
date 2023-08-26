@@ -8,7 +8,7 @@ class WorkOrderViewController extends GetxController {
   WorkOrderViewController(LoadUsersUseCase loadUsersUseCase)
       : _loadUsersUseCase = loadUsersUseCase;
 
-  late final WorkOrderEntity workOrder;
+  late WorkOrderEntity workOrder;
 
   final List<UserEntity> assignees = [];
   bool isLoadingAssignees = false;

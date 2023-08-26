@@ -9,7 +9,7 @@ class WorkOrdersListController extends GetxController {
     LoadAllWorkOrdersUseCase loadWorkOrdersUseCase,
   ) : _loadWorkOrdersUseCase = loadWorkOrdersUseCase;
 
-  List<WorkOrderEntity> workOrders = [];
+  final List<WorkOrderEntity> workOrders = [];
   bool isLoading = false;
 
   @override
@@ -24,7 +24,11 @@ class WorkOrdersListController extends GetxController {
     update();
 
     final result = await _loadWorkOrdersUseCase();
-    result.fold((l) => null, (r) => workOrders = r);
+    result.fold((l) => null, (r) {
+      workOrders.clear();
+      workOrders.addAll(r);
+    });
+
     isLoading = false;
     update();
   }

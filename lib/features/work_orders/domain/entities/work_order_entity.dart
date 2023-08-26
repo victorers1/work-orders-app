@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-
 import 'package:get/get.dart';
 
 import 'package:work_orders_app/features/work_orders/data/models/work_order_model.dart';
@@ -75,5 +74,27 @@ class WorkOrderEntity {
   @override
   String toString() {
     return 'WorkOrderEntity(assetId: $assetId, assignedUserIds: $assignedUserIds, checklist: $checklist, description: $description, id: $id, priority: $priority, status: $status, title: $title)';
+  }
+
+  WorkOrderEntity copyWith({
+    int? assetId,
+    List<int>? assignedUserIds,
+    Set<ChecklistEntity>? checklist,
+    String? description,
+    int? id,
+    String? priority,
+    String? status,
+    String? title,
+  }) {
+    return WorkOrderEntity(
+      assetId: assetId ?? this.assetId,
+      assignedUserIds: assignedUserIds ?? this.assignedUserIds,
+      checklist: checklist ?? this.checklist,
+      description: description ?? this.description,
+      id: id ?? this.id,
+      priority: priority ?? this.priority,
+      status: status ?? this.status,
+      title: title ?? this.title,
+    );
   }
 }

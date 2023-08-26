@@ -1,9 +1,9 @@
 class HealthHistoryModel {
-  final String status;
-  final String timestamp;
+  final String? status;
+  final String? timestamp;
   HealthHistoryModel({
-    required this.status,
-    required this.timestamp,
+    this.status,
+    this.timestamp,
   });
 
   Map<String, dynamic> toJson() {
